@@ -9,15 +9,15 @@ import {downloadCanvasToImage, reader} from "../config/helpers"
 import {EditorTabs, FilterTabs, DecalTypes} from "../config/constants"
 import { fadeAnimation, slideAnimation } from '../config/motion';
 
-import { ColorPicker, AiPicker, FilePicker, CustomButton, Tab  } from '../components';
+import { ColorPicker, FilePicker, CustomButton, Tab  } from '../components';
 
 const Customizer = () => {
 
   const snap = useSnapshot(state);
 
   const [file, setFile] = useState('')
-  const [prompt, setPrompt] = useState('')
-  const [generatingImg, setGeneratingImg] = useState(false)
+ /*  const [prompt, setPrompt] = useState('')
+  const [generatingImg, setGeneratingImg] = useState(false) */
 
   const [activeEditorTab, setActiveEditorTab] = useState("")
   const [activeFilterTab, setActiveFilterTab] = useState({
@@ -32,19 +32,19 @@ const Customizer = () => {
         return <ColorPicker/>
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile}/>
-      case "aipicker":
+   /*    case "aipicker":
         return <AiPicker
         prompt={prompt}
         setPrompt={setPrompt}
         generatingImg={generatingImg}
         handleSubmit={handleSubmit}
-        />
+        /> */
       default:
         return null;
     }
   }
 
-  const handleSubmit = async ()=>{
+  /* const handleSubmit = async ()=>{
     if(!prompt)
     return alert("please enter your prompt!")
 
@@ -72,7 +72,7 @@ const Customizer = () => {
       setGeneratingImg(false)
       setActiveEditorTab("")
     }
-}
+} */
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
 
